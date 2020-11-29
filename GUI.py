@@ -41,8 +41,8 @@ def takeCommand():
         query = r.recognize_google(audio, language='en-in')
         print(f'user said: {query}')
         def show_text():
-            text_label = Label(main_frame, text=query, background='red')
-            text_label.pack()
+            text_label = Label(main_frame, text=query, background='#fbf6f0', font=("Courier", 14))
+            text_label.pack(side='bottom')
         show_text()
     except Exception as e:
         speak("Say that again please")
@@ -55,9 +55,9 @@ main = Tk()
 main.title("Smart Virtual Assistant")  # title of the window
 main.geometry("800x600")  # Window size
 
-main_frame = Frame(main)  # Main frame where the labels are
-main_frame.pack()  # Every time need to pack the objects to show on the window
+main_frame = Frame(main, bg='#f8d49d')  # Main frame where the labels are
+main_frame.pack(fill='both', side='right', expand='True')  # Every time need to pack the objects to show on the window
 txt_btn = Button(main_frame, text='Click here', command=takeCommand)
-txt_btn.pack()
+txt_btn.pack(side='bottom')
 
 main.mainloop()  # main loop the root window to show everything on the screen
